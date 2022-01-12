@@ -9,11 +9,13 @@ namespace TripServiceKata
     {
         private readonly List<Trip> tripList;
         private readonly IUserSession userSession;
+        private readonly ITripDAOWrapper tripDAOWrapper;
 
-        public TripService(List<Trip> tripList, IUserSession userSession)
+        public TripService(List<Trip> tripList, IUserSession userSession, ITripDAOWrapper tripDAOWrapper)
         {
             this.tripList = tripList;
             this.userSession = userSession;
+            this.tripDAOWrapper = tripDAOWrapper;
         }
 
         public List<Trip> GetTripsByUser(User user)
@@ -34,7 +36,7 @@ namespace TripServiceKata
 
                 if (isFriend)
                 {
-                    tripList = TripDAO.FindTripsByUser(user);
+                    tripList = tripDAOWrapper.FindTripsByUser(user);
                 }
 
                 return tripList;
