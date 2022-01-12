@@ -8,9 +8,9 @@ namespace TripServiceKata
     public class TripService
     {
         private readonly List<Trip> tripList;
-        private readonly UserSession userSession;
+        private readonly IUserSession userSession;
 
-        public TripService(List<Trip> tripList, UserSession userSession)
+        public TripService(List<Trip> tripList, IUserSession userSession)
         {
             this.tripList = tripList;
             this.userSession = userSession;
