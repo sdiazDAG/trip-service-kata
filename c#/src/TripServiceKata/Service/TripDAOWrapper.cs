@@ -4,11 +4,6 @@ using TripServiceKata.Service;
 
 namespace TripServiceKata
 {
-    public interface ITripDAOWrapper
-    {
-        List<Trip> FindTripsByUser(User user);
-    }
-
     public class TripDAOWrapper : ITripDAOWrapper
     {
         public TripDAOWrapper()
